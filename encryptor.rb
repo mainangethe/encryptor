@@ -51,4 +51,15 @@ class Encryptor
     puts "File decrypted. Go open #{ output_file}"
   end
 
+  def supported_characters
+    (' '..'z').to_a
+  end
+
+  def crack unknown_encrypted_text
+    supported_characters.count.times.collect do |attempt|
+      puts "Attempt #{ attempt }: #{decrypt( unknown_encrypted_text, attempt)}"
+      puts 
+    end
+  end
+
 end
